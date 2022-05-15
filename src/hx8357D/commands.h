@@ -1,0 +1,30 @@
+#define CASET 			0x2A
+#define PASET 			0x2B
+#define RAMWR 			0x2C
+#define RDDIDIF 		0x04
+#define RDDPM   		0x0A  //  read power mode
+#define RDDCOLMOD		0x0C
+#define ALLPOFF			0x22
+#define ALLPON			0x23
+#define DISPOFF			0x28
+#define DISPON			0x29
+#define SLPOUT			0x11
+#define NORON			0x13
+#define INVOFF			0x20
+#define IDMOFF			0x38  //  idle mode off
+#define RAMRD			0x2E
+#define WRDISBV			0x51
+#define SWRESET			0x01
+#define SETC			0xB9
+#define TFTLCD_DELAY	0xFF
+#define SETRGB			0xB3
+#define SETCOM			0xB6
+#define SETOSC			0xB0
+#define SETPANEL		0xCC
+#define SETPWR1			0xB1
+#define SETSTBA			0xC0
+#define SETCYC			0xB4
+#define COLMOD			0x3A
+#define MADCTL			0x36
+#define TEON			0x35
+#define TEARLINE		0x44	
