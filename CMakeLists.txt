@@ -23,4 +23,6 @@ target_sources(app PRIVATE
     src/lib/text.c
     src/lib/text.h
     src/fonts/font.h
+    src/nrf52840_HAL.h
+    src/nrf52840_HAL.c
 )
