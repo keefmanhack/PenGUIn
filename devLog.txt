@@ -1,0 +1,22 @@
+Monday May 16th 10:46PM
+-----------------------
+- Just learned how the 4-wire resistive touchscreen works and I need to now build a driver for this device.
+- Seems fairly simple.  Each GPIO has to function as as not connected, analog input, ground, or VDD
+- I'm going to work through the design a bit, but here I'll describe high level the approach...
+    We will always be in a READING_XSTATE.  When we have get notice of pressure on the screen we will first read the X value and store it.
+    Then we will switch to READING_YSTATE.  Read the y value and store it.
+    Then return to the READING_XSTATE (i.e. waiting for event)
+
+    When the analog value for reading X reaches some threshold trigger an interrupt.
+    That interrupt ruitine will store X, read Y, store Y.
+    In the future... trigger an event handler... (maybe idk what should be responsible for the event behavior yet & what should be responsible for catagorizing events like click or drag)
+
+    A bit more low level ....
+        Set READX analog input to continously sample the analog input.  Trigger an event when that sampled data makes a change.  Do I need to be averaging the values???
+            No no no.  The analog data needs cleaned before I touch it.  There is something wrong.  The data seems to bleed.  Setting analog pin 5 to VDD raises pin 4
+            set to GND by 10-20. 
+    Cart before the horse here.  I need to clean up the analog data first.
+
+
+
+    Can we detect multiple fingers??? I don't think so...
