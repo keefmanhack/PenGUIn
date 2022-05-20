@@ -1,3 +1,25 @@
+Thursday May 19th 8PM
+----------------------
+A bit stuck on handling interrupts right now.  I'm finding it difficult to find useful resources on how the M4 NVIC works.
+The interrupt approach is certaintly the way to go.  The alternative is continous checking which seems like an inefficient use of the processor.
+Once I create the firmware for the 4-wire touchscreen I'll need to abstract away to Events.  These events can then be categorized into
+different types like click or drag.  The way events work should be self-propogating.  THe screen will be a Mip (div).  The screen gets the event
+then sends down the line to it's children if the x,y cordinates of the event fall within the range of the child.  This is better than the alterantive approach
+of propogating bottom up becase then I need to keep a reference to all the bottom level componets where events don't really make a lot of sense such as with 
+text
+
+I also don't have internet acess at the moment so I'm going to work a bit on the styling of my UI components and handeling layout.  I want to start with embedding
+elements inside of one another.  This is the overall arhitecture of the UI.  I like the HTML5 approach.  It's intuitive and familiar so I'm going to style the design
+after this approach.  The screen Mip is essentially the body tag.
+
+So let's start with inserting and deleting elements from other elements.  If I have time I want to consider text overflow behavior.  Text should be treated like a span
+tag.
+
+Wednesday May 18th 7AM
+-----------------------
+Comming back in morning after to fill this in.  I did my best to clean up the analog data.  All I did was change the resolution to 8 bit.
+Now I'm trying to figure out how interrupts work for the ARM M4 processor.
+
 Monday May 16th 10:46PM
 -----------------------
 - Just learned how the 4-wire resistive touchscreen works and I need to now build a driver for this device.

@@ -36,7 +36,7 @@ void setAnalog(uint8_t input){
         NRF_CLOCK->EVENTS_HFCLKSTARTED = 0;
 
         // Configure the SAADC resolution.
-        NRF_SAADC->RESOLUTION = SAADC_RESOLUTION_VAL_10bit << SAADC_RESOLUTION_VAL_Pos;
+        NRF_SAADC->RESOLUTION = SAADC_RESOLUTION_VAL_8bit << SAADC_RESOLUTION_VAL_Pos;
 
         // Configure result to be put in RAM at the location of "result" variable.
         NRF_SAADC->RESULT.PTR = (uint32_t)&result[0];
@@ -69,7 +69,7 @@ void setAnalog(uint8_t input){
     // Configure SAADC singled-ended channel, Internal reference (0.6V) and 1/6 gain.
     NRF_SAADC->CH[input].CONFIG = (SAADC_CH_CONFIG_GAIN_Gain1_6    << SAADC_CH_CONFIG_GAIN_Pos) |
                                 (SAADC_CH_CONFIG_MODE_SE         << SAADC_CH_CONFIG_MODE_Pos) |
-                                (SAADC_CH_CONFIG_REFSEL_Internal << SAADC_CH_CONFIG_REFSEL_Pos) |
+                                (SAADC_CH_CONFIG_REFSEL_VDD1_4 << SAADC_CH_CONFIG_REFSEL_Pos) |
                                 (SAADC_CH_CONFIG_RESN_Bypass     << SAADC_CH_CONFIG_RESN_Pos) |
                                 (SAADC_CH_CONFIG_RESP_Pulldown     << SAADC_CH_CONFIG_RESP_Pos) |
                                 (SAADC_CH_CONFIG_TACQ_3us        << SAADC_CH_CONFIG_TACQ_Pos);

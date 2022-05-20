@@ -8,10 +8,11 @@
 // #include "fonts/Monospace/reg_24pt.h"
 #include "nrf52840_HAL.h"
 
-
 #include <nrf.h>
 #include <stdint.h>
 #include "hx8357D/nrf52840_util.h"
+
+
 
 void main(void)
 {	

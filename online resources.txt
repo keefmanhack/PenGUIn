@@ -1,3 +1,7 @@
 TTF to C Array Generator
 ------------------------
 https://lvgl.io/tools/fontconverter
+
+Interrupts M4
+--------------
+https://interrupt.memfault.com/blog/arm-cortex-m-exceptions-and-nvic
