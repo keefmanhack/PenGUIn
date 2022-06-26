@@ -17,3 +17,22 @@ void Mip_render(Mip_t * const this){
 
     TFT_render(this);
 }
+
+void Mip_add(Mip_t * const this, Mip_t * const newMip){
+    if(this==NULL || newMip==NULL){
+        assert(0);
+        return;
+    }
+
+    this->children.push(&newMip);
+}
+
+
+void Mip_remove(Mip_t * const this, Mip_t * const rmMip){
+    if(this==NULL || rmMip==NULL){
+        assert(0);
+        return;
+    }
+
+    this->children.remove(&rmMip);
+}

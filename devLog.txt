@@ -15,6 +15,8 @@ after this approach.  The screen Mip is essentially the body tag.
 So let's start with inserting and deleting elements from other elements.  If I have time I want to consider text overflow behavior.  Text should be treated like a span
 tag.
 
+Tried to get something done on this plane...didn't go great but at least thought through how to handle child-parent relationship with UI componenets.
+
 Wednesday May 18th 7AM
 -----------------------
 Comming back in morning after to fill this in.  I did my best to clean up the analog data.  All I did was change the resolution to 8 bit.
