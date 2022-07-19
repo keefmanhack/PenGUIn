@@ -5,3 +5,7 @@ void penGUIn_start(void){
     TFT_reset();
     TFT_begin();
 }
+
+void penGUIN_update(const Mip_t * const elem){
+    
+}
