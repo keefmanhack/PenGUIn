@@ -1,5 +1,5 @@
 #include "mip.h"
-#include "../hx8357D/tft.h"
+#include "../../hx8357D/tft.h"
 
 void Mip_create(Mip_t * const this, int w, int h, int x0, int y0, Color c){
     this->height = h;

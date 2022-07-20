@@ -1,11 +1,27 @@
 #include "penGUIn.h"
-#include "hx8357D/tft.h"
+#include "../hx8357D/tft.h"
 
 void penGUIn_start(void){
     TFT_reset();
     TFT_begin();
 }
 
-void penGUIN_update(const Mip_t * const elem){
-    
+void penGUIn_prev(void){
+    //  push state back to previous
+
+    // render
+}
+
+void penGUIn_next(void){
+    //  push state forward
+
+    // render
+
+}
+
+void penGUIn_update(const Mip_t * const elem){
+    //  update state
+
+    //  render screen
+
 }

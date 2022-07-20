@@ -1,12 +1,8 @@
 #include <string.h>
 
 #include "tft.h"
-#include "../util.h"
 #include "commands.h"
-#include "../lib/mip.h"
 #include "nrf52840_util.h"
-
-
 
 static void TFT_writecommand(uint8_t command){
     config_dport_out();
@@ -215,6 +211,19 @@ void TFT_begin(void){
 
 
 	delay();
+}
+
+void TFT_render(Mip_t * const b){
+	TFT_setAddrWindow(b->x0, b->y0, b->x0 + b->width, b->y0 + b->height);
+
+	TFT_writecommand(RAMWR);
+	
+	int len  = b->width * b->height;
+	while(len){
+		TFT_writedata(b->color);
+		TFT_writedata(b->color>>8);
+		len--;
+	}
 }
 
 void TFT_renderPixel(int x, int y, Color c){

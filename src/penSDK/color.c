@@ -1,5 +1,5 @@
 #include "./color.h"
-#include "hx8357D/16bit_color.h"
+#include "../hx8357D/16bit_color.h"
 
 #define BYTE_LEN 8
 

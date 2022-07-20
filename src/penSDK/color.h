@@ -1,5 +1,4 @@
 #include <stdint.h>
-#include "util.h"
 
 typedef uint16_t Color;
 

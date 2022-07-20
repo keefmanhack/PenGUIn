@@ -1,8 +1,8 @@
 #include <string.h>
 
 #include "text.h"
-#include "../hx8357D/def_font.h"
-#include "../hx8357D/tft.h"
+#include "../../hx8357D/def_font.h"
+#include "../../hx8357D/tft.h"
 
 void Text_create(Text_t * const this, int x0, int y0, Color c, const char * str, const Font_t * font){
     //  TODO: Adjust the 0 width and height set as placeholders right now
