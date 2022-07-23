@@ -96,7 +96,7 @@ static void TFT_setAddrWindow(int x0, int y0, int x1, int y1){
 }
 
 void TFT_reset(void){
-    config_gpio_output();
+    config_data_pins();
 	config_dport_out();
 
 	SET_CS;
@@ -213,21 +213,24 @@ void TFT_begin(void){
 	delay();
 }
 
-void TFT_render(Mip_t * const b){
-	TFT_setAddrWindow(b->x0, b->y0, b->x0 + b->width, b->y0 + b->height);
+// void TFT_render(Mip_t * const b){
+// 	TFT_setAddrWindow(b->x0, b->y0, b->x0 + b->width, b->y0 + b->height);
 
-	TFT_writecommand(RAMWR);
+// 	TFT_writecommand(RAMWR);
 	
-	int len  = b->width * b->height;
-	while(len){
-		TFT_writedata(b->color);
-		TFT_writedata(b->color>>8);
-		len--;
-	}
-}
+// 	int len  = b->width * b->height;
+// 	while(len){
+// 		TFT_writedata(b->color);
+// 		TFT_writedata(b->color>>8);
+// 		len--;
+// 	}
+// }
 
 void TFT_renderPixel(int x, int y, Color c){
-	Mip_t mip;
-	Mip_create(&mip, 1, 1, x, y, c);
-	Mip_render(&mip);
+	TFT_setAddrWindow(x, y, x+1, y+1);
+
+	TFT_writecommand(RAMWR);
+
+	TFT_writedata(c);
+	TFT_writedata(c>>8);
 }

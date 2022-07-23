@@ -1,5 +1,8 @@
 /build
+/build_1
 prj.conf
 sample.yaml
 .vscode
 .DS_Store
+
+/src/lvgl_master

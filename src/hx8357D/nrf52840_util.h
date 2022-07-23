@@ -25,25 +25,34 @@
 					(GPIO_PIN_CNF_PULL_Pulldown << GPIO_PIN_CNF_PULL_Pos) | \
 					(GPIO_PIN_CNF_SENSE_Disabled << GPIO_PIN_CNF_SENSE_Pos)
 
+#define PORT1_PIN_HIGH(pin) (NRF_P1->OUTSET = (1UL << pin))
+#define PORT1_PIN_LOW(pin) (NRF_P1->OUTCLR = (1UL << pin))
 
-#define UNSET_CS NRF_P1->OUTCLR = (1UL << CS_PIN)
-#define SET_CS NRF_P1->OUTSET = (1UL << CS_PIN)	
+#define PORT0_PIN_HIGH(pin) (NRF_P0->OUTSET = (1UL << pin))
+#define PORT0_PIN_LOW(pin) (NRF_P0->OUTCLR = (1UL << pin))
 
-#define UNSET_DCX NRF_P1->OUTCLR = (1UL << DCX_PIN)
-#define SET_DCX NRF_P1->OUTSET = (1UL << DCX_PIN)	
 
-#define UNSET_WRX NRF_P1->OUTCLR = (1UL << WRX_PIN)
-#define SET_WRX NRF_P1->OUTSET = (1UL << WRX_PIN)	
+#define UNSET_CS 		PORT1_PIN_LOW(CS_PIN)
+#define SET_CS 	 		PORT1_PIN_HIGH(CS_PIN)
 
-#define UNSET_RDX NRF_P1->OUTCLR = (1UL << RDX_PIN)
-#define SET_RDX NRF_P1->OUTSET = (1UL << RDX_PIN)	
+#define UNSET_DCX 		PORT1_PIN_LOW(DCX_PIN)
+#define SET_DCX 		PORT1_PIN_HIGH(DCX_PIN)	
+
+#define UNSET_WRX 		PORT1_PIN_LOW(WRX_PIN)
+#define SET_WRX 		PORT1_PIN_HIGH(WRX_PIN)
+
+#define UNSET_RDX 		PORT1_PIN_LOW(RDX_PIN)
+#define SET_RDX 		PORT1_PIN_HIGH(RDX_PIN)
 
 #define UNSET_TESTPIN NRF_GPIO->OUTCLR = (1UL << TEST_PIN)
 #define SET_TESTPIN NRF_GPIO->OUTSET = (1UL << TEST_PIN)	
 
 void delay(void);
 void clearParPort(void);
-void config_gpio_output(void);
+void config_data_pins(void);
+void config_gpio_output(uint8_t pin, uint8_t port);
+void config_gpio_input(uint8_t pin, uint8_t port);
+void remove_config_gpio(uint8_t pin, uint8_t port);
 void config_dport_out(void);
 void config_dport_in(void);
 

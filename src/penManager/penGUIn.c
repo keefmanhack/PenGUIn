@@ -1,4 +1,4 @@
-#include "penGUIn.h"
+#include "./penGUIn.h"
 #include "../hx8357D/tft.h"
 
 void penGUIn_start(void){
